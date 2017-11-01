@@ -17,7 +17,7 @@ abstract class XmlRpcCommon
     /** @var Xml RPC Error */
     private $error = null;
 
-    private $smsId;
+    public $smsId;
 
     private $apiKey;
 
@@ -27,16 +27,16 @@ abstract class XmlRpcCommon
 	private $user_id = "";
 	private $user_pw = "";
     
-    private $m_szResultXML = "";
-	private $m_oResultDom = null;
-	private $m_szResultCode = "";
-	private $m_szResultMessage = "";
-	private $m_szResult = "";
+    public $m_szResultXML = "";
+	public $m_oResultDom = null;
+	public $m_szResultCode = "";
+	public $m_szResultMessage = "";
+	public $m_szResult = "";
 
-	private $m_nBefore = 0;
-	private $m_nAfter = 0;
-	private $success_cnt = 0;
-	private $fail_list;
+	public $m_nBefore = 0;
+	public $m_nAfter = 0;
+	public $success_cnt = 0;
+	public $fail_list;
 
 	public $md5_access_token = "";
 
@@ -112,7 +112,7 @@ abstract class XmlRpcCommon
 		return $nonce;
     }
 
-    private function get_result_xml($result)
+    public function get_result_xml($result)
 	{
 		$sp = new Gabia\Helper\SimpleParser();
 		$sp->parse_xml($result);
@@ -159,7 +159,7 @@ abstract class XmlRpcCommon
         unset($this->m_oResultDom);
     }
 
-    private function Decoding($data) {
+    public function Decoding($data) {
         $Encoder = new PhpXmlRpc\Encoder();
         
         return $Encoder->decode($data);
@@ -208,7 +208,7 @@ abstract class XmlRpcCommon
 		return $this->fail_list;
 	}
 
-	private function escape_xml_str($message){
+	public function escape_xml_str($message){
 		$message = str_replace("&", "&amp;",$message);
 		$message = str_replace("<", "&lt;",$message);
 		$message = str_replace(">", "&gt;",$message);
@@ -216,7 +216,7 @@ abstract class XmlRpcCommon
 		return $message;
     }
     
-    private function filter_phone_number($phone) {
+    public function filter_phone_number($phone) {
         $arr_phone = array_filter($phone, function($value) {
             if(is_null($value) || empty($value)) {
                 return false;

@@ -1,9 +1,9 @@
 <?php
 namespace Gabia\Api;
 
-use Gabia\Helper;
+use Gabia\Helper\XmlRpcCommon;
 
-class Sms extends XmlRpcCommon 
+class Sms extends XmlRpcCommon
 {
     public function __construct($id, $api_key, $pw="")
 	{
