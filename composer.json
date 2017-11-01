@@ -1,0 +1,11 @@
+{
+    "name": "bearting88/gabiasms",
+    "type": "library",
+    "require": {
+         "php": ">=5.3.0",
+         "phpxmlrpc/phpxmlrpc": "^4.2"
+    },
+    "autoload": {
+        "psr-4": {"Gabia\\": "src"}
+    }
+}
